@@ -25,8 +25,20 @@ void bin_search(vector<int> &arr, int l, int r, int val)
   cout << "Value not found\n";
 }
 
+void easy_bin_search(vector<int> &arr, int l, int r, int val)
+{
+  vector<int>::iterator it = lower_bound(arr.begin(), arr.end(), val);
+  if (*it != val)
+    cout << "Value" << *it << " not found " << endl;
+  else
+  {
+    cout << *it << " Found at " << it - arr.begin() << endl;
+  }
+}
+
 int main()
 {
   vector<int> arr = {1, 3, 5, 6, 7, 9, 10, 15, 20, 50};
   bin_search(arr, 0, 10, 4);
+  easy_bin_search(arr, 0, 10, 7);
 }
